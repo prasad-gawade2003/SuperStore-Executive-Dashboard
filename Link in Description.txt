@@ -1,0 +1,66 @@
+file:///C:/Users/dell/Downloads/superstore_dashboard.html
+
+
+Prompt:
+Here it is — crafted as a top-tier dashboard prompt for any AI tool (Claude, ChatGPT, Cursor, v0, Lovable, etc.):
+
+
+Role: You are a senior data visualization engineer and BI dashboard expert specializing in executive-level reporting. You build production-grade, interactive dashboards that transform raw transactional data into boardroom-ready intelligence.
+Context: I am presenting this dashboard to the CEO and CFO of Bajaj. It must be clean, authoritative, and immediately interpretable — zero guesswork for a time-poor executive. The data spans 4 years (2018–2021) of US retail transactions with 9,994 orders across 3 product categories (Furniture, Office Supplies, Technology), 3 customer segments (Consumer, Corporate, Home Office), 4 regions (East, West, Central, South), and 17 sub-categories. Key financial metrics include Sales, Profit, Quantity, and Discount.
+Task: Build a fully interactive HTML + JavaScript dashboard (single self-contained file) with the following specifications:
+
+SECTION 1 — KPI Summary Bar (top of page)
+Display 5 metric cards in a horizontal row:
+
+Total Revenue: $2.84M
+Total Profit: $286K
+Profit Margin: 10.1%
+Total Orders: 9,994
+Unique Customers: 793
+Each card shows the metric name, value in large bold font, and a subtle trend arrow or color indicator.
+
+
+SECTION 2 — Global Filter Panel (sticky or top-positioned)
+Interactive slicers that filter ALL charts simultaneously:
+
+Year selector (2018, 2019, 2020, 2021, or All)
+Region multi-select (East, West, Central, South)
+Segment multi-select (Consumer, Corporate, Home Office)
+Category multi-select (Furniture, Office Supplies, Technology)
+Ship Mode filter (Same Day, First Class, Second Class, Standard Class)
+
+
+SECTION 3 — 10+ Charts (described below)
+Build these charts using Chart.js or D3.js. Each chart must respond to the global filters:
+
+Monthly Sales & Profit Trend (Line Chart) — Dual-axis line chart showing monthly Sales (left axis) and Profit (right axis) over time. Helps CEO spot seasonal patterns and peak periods.
+Sales by Category (Donut Chart) — Furniture vs Office Supplies vs Technology. Show % share and absolute value. CFO can instantly see revenue concentration.
+Profit Margin by Sub-Category (Horizontal Bar Chart) — Ranked from highest to lowest margin. Color-code bars: green if margin > 15%, amber if 5–15%, red if negative. This is a critical profitability view for the CFO.
+Regional Performance (Bar + Line Combo Chart) — Grouped bars for Sales per region, overlaid with a Profit Margin % line. East vs West vs Central vs South.
+Customer Segment Revenue Split (Stacked Bar Chart by Year) — Shows Consumer, Corporate, and Home Office revenue stacked per year (2018–2021). Reveals growth trajectory of each segment.
+Sales vs Profit Scatter Plot (Bubble Chart) — Each bubble = one sub-category. X-axis = Total Sales, Y-axis = Total Profit, Bubble size = Total Quantity sold. Color by Category. Instantly shows which products drive volume vs value.
+Discount Impact Analysis (Line Chart) — X-axis = Discount % bands (0%, 10%, 20%, 30%, 40%, 50%), Y-axis = Average Profit. Shows the inflection point where discounts destroy margin — critical CFO insight.
+Top 10 States by Revenue (Horizontal Bar Chart) — Clean ranked list. Color by Region. Add a small profit margin % label at the end of each bar.
+Shipping Mode Distribution & Cost Impact (Pie + KPI) — Pie chart of orders by ship mode. Below it, show average days to ship and average profit per mode as a small table. Helps CEO evaluate logistics strategy.
+Year-over-Year Revenue Growth (Waterfall or Grouped Bar) — Show annual Sales and Profit side-by-side for 2018, 2019, 2020, 2021. Add % YoY growth labels above each bar.
+(Bonus) Monthly Orders Heatmap (Calendar Heatmap) — Rows = months, Columns = days or weeks. Cell color intensity = number of orders. Reveals peak ordering periods. Green color ramp.
+
+
+SECTION 4 — Automated Insights Panel (right sidebar or bottom row)
+Generate 5 dynamic text insights that update when filters change. Examples:
+
+"Technology drives the highest profit margin at 17.4%, but Furniture has the lowest at 2.5%."
+"Discounts above 20% result in negative average profit — currently applied to 18% of orders."
+"The West region generates the most revenue ($725K) but Central has the weakest margins."
+Style these as card-based callout boxes with an icon prefix (warning, info, success).
+
+
+Design Requirements:
+
+Color palette: Deep navy header (#1a2744), white cards, accent colors: teal for positive metrics, amber for neutral, red for loss/warning
+Font: Inter or system-sans-serif, 12–14px body, 22–28px KPI numbers
+Fully responsive (works at 1280px+ width)
+Tooltips on hover for every chart showing exact values
+Smooth filter transitions (200ms animation)
+No external API calls — all data hardcoded as a JavaScript array from the dataset provided
+Single HTML file, zero dependencies beyond CDN-loaded Chart.js and optionally D3.js
